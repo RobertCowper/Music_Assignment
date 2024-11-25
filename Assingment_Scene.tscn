@@ -19,7 +19,7 @@ text = "Play"
 [node name="HSlider" type="HSlider" parent="."]
 offset_left = 138.0
 offset_top = 160.0
-offset_right = 146.0
+offset_right = 677.0
 offset_bottom = 176.0
 scale = Vector2(0.769444, 0.785391)
 step = 0.1
