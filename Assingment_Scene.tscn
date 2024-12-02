@@ -1,31 +1,154 @@
-[gd_scene load_steps=3 format=3 uid="uid://oyt4ptt18m7n"]
+[gd_scene load_steps=8 format=3 uid="uid://oyt4ptt18m7n"]
 
 [ext_resource type="Script" path="res://audio_demo.gd" id="1_frvh4"]
-[ext_resource type="Script" path="res://Looper.gd" id="2_vqsuw"]
+[ext_resource type="AudioStream" uid="uid://d1fll2yj835qd" path="res://samples/cowbell-808.wav" id="2_gbpkw"]
+[ext_resource type="AudioStream" uid="uid://bsqkmp3iyooc7" path="res://samples/clap-fat.wav" id="4_8pe2r"]
+[ext_resource type="AudioStream" uid="uid://cqx0em2oysoeo" path="res://samples/kick-deep.wav" id="4_atgbl"]
+[ext_resource type="AudioStream" uid="uid://6t4omtk1ptde" path="res://samples/kick-vinyl01.wav" id="5_ltgal"]
+[ext_resource type="AudioStream" uid="uid://fbn8nlrjieul" path="res://samples/ride-acoustic01.wav" id="6_p0h6s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw0sl"]
+size = Vector2(92.8804, 13.0097)
 
 [node name="Audio_Demo" type="Node2D"]
 script = ExtResource("1_frvh4")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(24, 496)
+scale = Vector2(4.54595, 10.1751)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(46.3897, 6.46795)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tw0sl")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D"]
+offset_right = 93.0
+offset_bottom = 13.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="."]
-offset_left = 129.0
-offset_top = 81.0
-offset_right = 170.0
-offset_bottom = 112.0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 77.0
+offset_bottom = 67.0
 scale = Vector2(1.22595, 1.21512)
-text = "Play"
+text = "Sound 1"
 
 [node name="HSlider" type="HSlider" parent="."]
-offset_left = 138.0
-offset_top = 160.0
-offset_right = 677.0
-offset_bottom = 176.0
+offset_left = 45.0
+offset_top = 95.0
+offset_right = 580.0
+offset_bottom = 118.0
 scale = Vector2(0.769444, 0.785391)
-step = 0.1
 
-[node name="Node2D" type="Node2D" parent="."]
-script = ExtResource("2_vqsuw")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_gbpkw")
 
+[node name="Button2" type="Button" parent="."]
+offset_left = 45.0
+offset_top = 180.0
+offset_right = 126.0
+offset_bottom = 221.0
+text = "Sound 2"
+
+[node name="HSlider2" type="HSlider" parent="."]
+offset_left = 44.0
+offset_top = 242.0
+offset_right = 461.0
+offset_bottom = 261.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_atgbl")
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 48.0
+offset_top = 314.0
+offset_right = 126.0
+offset_bottom = 348.0
+scale = Vector2(1.22595, 1.21512)
+text = "Sound 3"
+
+[node name="HSlider3" type="HSlider" parent="."]
+offset_left = 52.0
+offset_top = 388.0
+offset_right = 587.0
+offset_bottom = 411.0
+scale = Vector2(0.769444, 0.785391)
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(52, 388)
+scale = Vector2(0.769444, 0.785391)
+stream = ExtResource("4_8pe2r")
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 598.0
+offset_top = 27.0
+offset_right = 669.0
+offset_bottom = 58.0
+scale = Vector2(1.22595, 1.21512)
+text = "Sound 4"
+
+[node name="HSlider4" type="HSlider" parent="."]
+offset_left = 607.0
+offset_top = 86.0
+offset_right = 1142.0
+offset_bottom = 109.0
+scale = Vector2(0.769444, 0.785391)
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(52, 388)
+scale = Vector2(0.769444, 0.785391)
+stream = ExtResource("4_atgbl")
+
+[node name="Button5" type="Button" parent="."]
+offset_left = 607.0
+offset_top = 171.0
+offset_right = 688.0
+offset_bottom = 212.0
+text = "Sound 5"
+
+[node name="HSlider5" type="HSlider" parent="."]
+offset_left = 606.0
+offset_top = 233.0
+offset_right = 1023.0
+offset_bottom = 252.0
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(52, 388)
+scale = Vector2(0.769444, 0.785391)
+stream = ExtResource("5_ltgal")
+
+[node name="Button6" type="Button" parent="."]
+offset_left = 610.0
+offset_top = 305.0
+offset_right = 688.0
+offset_bottom = 339.0
+scale = Vector2(1.22595, 1.21512)
+text = "Sound 6"
+
+[node name="HSlider6" type="HSlider" parent="."]
+offset_left = 614.0
+offset_top = 379.0
+offset_right = 1149.0
+offset_bottom = 402.0
+scale = Vector2(0.769444, 0.785391)
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(52, 388)
+scale = Vector2(0.769444, 0.785391)
+stream = ExtResource("6_p0h6s")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
+[connection signal="value_changed" from="HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]
+[connection signal="value_changed" from="HSlider3" to="." method="_on_h_slider_3_value_changed"]
+[connection signal="button_down" from="Button4" to="." method="_on_button_4_button_down"]
+[connection signal="value_changed" from="HSlider4" to="." method="_on_h_slider_4_value_changed"]
+[connection signal="button_down" from="Button5" to="." method="_on_button_5_button_down"]
+[connection signal="value_changed" from="HSlider5" to="." method="_on_h_slider_5_value_changed"]
+[connection signal="button_down" from="Button6" to="." method="_on_button_6_button_down"]
+[connection signal="value_changed" from="HSlider6" to="." method="_on_h_slider_6_value_changed"]
