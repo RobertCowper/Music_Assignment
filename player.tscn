@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1buhsdr2l6fu"]
+
+[ext_resource type="AudioStream" uid="uid://cur40l8jnvuhi" path="res://20240801_upbeat_for_viz_justdrums.mp3" id="2_htbea"]
+[ext_resource type="PackedScene" uid="uid://dcu83qqbw8nt7" path="res://trail.tscn" id="3_ucavu"]
+[ext_resource type="Script" path="res://impulse_simple.gd" id="5_528dm"]
+[ext_resource type="Script" path="res://impulse_generator.gd" id="5_a6den"]
+[ext_resource type="Script" path="res://TrailGlitchySine.gd" id="5_d2u5c"]
+[ext_resource type="Script" path="res://DisplayImpulse.gd" id="6_5hg28"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_smm77"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(2, 5)
+
+[node name="TrailNodeGlitchy" type="CharacterBody2D" parent="."]
+process_mode = 4
+position = Vector2(560, 233)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("5_a6den")
+bus_id = 1
+max_impulse = 100
+
+[node name="Player2" type="AudioStreamPlayer" parent="TrailNodeGlitchy"]
+stream = ExtResource("2_htbea")
+autoplay = true
+bus = &"Bus 1"
+
+[node name="Trail" parent="TrailNodeGlitchy" instance=ExtResource("3_ucavu")]
+top_level = true
+z_index = -1
+points = PackedVector2Array(516, 146)
+default_color = Color(0.0431373, 0.0196078, 0.00392157, 1)
+end_cap_mode = 1
+MAX_LENGTH = 0
+max_height = 50
+
+[node name="TrailNodeEKG" type="CharacterBody2D" parent="."]
+position = Vector2(561, 240)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("5_528dm")
+bus_id = 1
+max_impulse = 50
+
+[node name="Trail" parent="TrailNodeEKG" instance=ExtResource("3_ucavu")]
+top_level = true
+z_index = -1
+points = PackedVector2Array(516, 146)
+end_cap_mode = 1
+script = ExtResource("5_d2u5c")
+
+[node name="Player" type="AudioStreamPlayer" parent="TrailNodeEKG"]
+stream = ExtResource("2_htbea")
+autoplay = true
+bus = &"Bus 1"
+
+[node name="Label" type="Label" parent="TrailNodeEKG"]
+offset_left = -2100.0
+offset_top = -1248.0
+offset_right = -1787.0
+offset_bottom = -1160.0
+label_settings = SubResource("LabelSettings_smm77")
+script = ExtResource("6_5hg28")

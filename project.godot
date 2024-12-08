@@ -10,6 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Music_Assignment"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/name="LineMusicVisualizer"
+run/main_scene="res://player.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[editor]
+
+movie_writer/movie_file="/home/thcrock/Videos/line_music_visualizer/wild_birds.avi"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(1, 0.980392, 0.839216, 1)
